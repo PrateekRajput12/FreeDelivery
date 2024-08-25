@@ -16,7 +16,7 @@ const RestaurantCardPromoted=WithPromotedLabel(ResList)
 const fetchData =async()=>{
   const data=await fetch(RES_API)
   const response = await data.json()
-  console.log(response);
+  // console.log(response);
   setresList(response?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
   settempResList(response?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
  
@@ -32,9 +32,9 @@ if(!resList){
 }
   return (
     <div className='w-[100%] md:w-[85%] md:mx-auto my-[3rem] mx-0'>
-<div className=' w-full md:text-start text-center mb-24 flex flex-wrap items-center justify-between    '>
-<div>    <input type='text' placeholder='Enter Restaurant Name' 
-    className='px-8 text-left text-[1.6rem] py-4 border border-black'
+<div className=' md:text-start text-center mb-24 flex flex-wrap items-center justify-between  w-[90%] mx-auto  '>
+<div className='flex gap-3 flex-wrap '>    <input type='text' placeholder='Enter Restaurant Name' 
+    className='md:px-8 sm:px-6 sm:text-[1.2rem] sm:py-3 text-left md:text-[1.6rem] md:py-4 border border-black'
 //  change={searchValue}
     onChange={(e)=>{setsearchValue(e.target.value)}}
     />
@@ -51,13 +51,7 @@ if(!resList){
    
    
    
-   
-   
-   
-   
-   
-   
-   
+ 
     <button
     className="bg-green-600 text-white md:ml-4  font-bold md:text-[1.7rem] text-[1rem] md:py-4 md:px-10 px-5 py-2 rounded-[3rem]"
     onClick={()=>{

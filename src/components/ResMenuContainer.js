@@ -5,7 +5,7 @@ import ResMenuList from './ResMenuList'
 const ResMenuContainer = () => {
 
 const {id}=useParams()
-console.log(id);
+// console.log(id);
 // console.log(param);
 
 const [showIndex,setshowIndex]=useState(null)
@@ -23,11 +23,12 @@ setresMenu(response?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
 useEffect(()=>{
 fetchData()
 },[])
-
+// console.log(resInformation);
 // console.log(resMenu);
-const {name,costForTwoMessage,avgRating,cuisines,locality,totalRatingsString}=resInformation
+const {name,costForTwoMessage,avgRating,cuisines,locality,totalRatingsString,expectationNotifiers}=resInformation
 
-
+// console.log(expectationNotifiers);
+const{enrichedText}=expectationNotifiers[0]
   return (
     <div className='p-24 md:w-[60%] mx-auto '>
 
@@ -42,13 +43,13 @@ const {name,costForTwoMessage,avgRating,cuisines,locality,totalRatingsString}=re
 </ul>
 
 <div  className='mx-10  leading-[3rem] mb-16'>
-    <h1 className='text-[2.5rem] font-bold m-8 md:text-start text-center'>{resInformation?.name}</h1>
+    <h1 className='text-[2.5rem] font-bold m-8 md:text-start text-center'>{name}</h1>
     <div className='border border-[#D9DADB] rounded-3xl md:p-8 p-4 shadow-xl shadow-[#a3a3a4]'>
         <h2 className='font-bold md:text-3xl text-[1.29rem]'> ⭐{avgRating}({totalRatingsString}) * {costForTwoMessage}</h2>
         <Link><p className='md:text-[1.4rem] text-[1rem] text-[#FF5200] underline font-bold'>{cuisines}</p></Link>
         <p>{locality}</p>
         <hr className='text-[#767474] font-bold '></hr>
-        <p className='text-[1.3rem]'>1.2kms | 44 Delivery fee will be apply</p>
+        <p className='text-[1.3rem]'>{enrichedText}</p>
     </div>
 </div>
 
